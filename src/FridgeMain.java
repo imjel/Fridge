@@ -3,10 +3,11 @@ public class FridgeMain {
 	/**
 	 * MVC program that emulates a fridge
 	 */
-	private static Fridge fridge = new Fridge();
-	
-	/**
-	 * Updates
-	 */
+	public static void main(String[] args) {
+		// initialize fridge
+		Fridge fridge = new Fridge();
+		// initialize GUI
+		FridgeGUI gui = new FridgeGUI();
+	}
 	
 }
