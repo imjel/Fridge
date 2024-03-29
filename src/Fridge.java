@@ -14,23 +14,24 @@ public class Fridge {
 		listeners = new ArrayList<>();
 	}
 	
-	/**
-	 * Prints all items in the fridge
-	 */
-	public void displayFridge() {
-		
-		System.out.println("\nNumber of foods in fridge: " + foods.size());
-		
-		for (Food food : foods) {
-			System.out.println("\n" + food.getName());
-		}
-	}
+//	/**
+//	 * Prints all items in the fridge
+//	 */
+//	public void displayFridge() {
+//		
+//		System.out.println("\nNumber of foods in fridge: " + foods.size());
+//		
+//		for (Food food : foods) {
+//			System.out.println("\n" + food.getName());
+//		}
+//	}
 	
 	/**
 	 * Adds a food item to the fridge
 	 */
 	public void addFood(Food item) {
 		foods.add(item);
+		notifyListeners();
 	}
 	
 	/**
@@ -38,14 +39,22 @@ public class Fridge {
 	 */
 	public void removeFood(Food item) {
 		foods.remove(item);
+		notifyListeners();
 	}
 	
+	/**
+	 * Adds a listener to the fridge's listener list
+	 * Listener is notified when fridge's list value changes 
+	 * @param listener
+	 */
 	public void addListener(FridgeListener listener) {
         listeners.add(listener);
     }
 
-    public void removeListener(FridgeListener listener) {
-        listeners.remove(listener);
+	public void notifyListeners() {
+        for (FridgeListener listener : listeners) {
+            listener.update(foods);
+        }
     }
 	
 	/**

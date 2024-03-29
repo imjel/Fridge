@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class FridgeGUI implements FridgeListener{
+public class FridgeGUI implements ActionListener, FridgeListener{
 	
 	private Fridge fridge;
 	private JButton addButton;
@@ -35,6 +35,7 @@ public class FridgeGUI implements FridgeListener{
 		// initialize fridge
 		
 		fridge = new Fridge();
+		fridge.addListener(this);
 		
 		removeButton = new JButton("Remove Food");
 		addButton = new JButton("Add Food");
@@ -72,6 +73,17 @@ public class FridgeGUI implements FridgeListener{
 		for (Food food : fridge.getFoods()) {
 			listModel.addElement(food.getName());
 		}
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == addButton) {
+            addFoodDialog();
+		}
+//        } else if (e.getSource() == removeButton) {
+//        	fridge.removeFood(null);
+//        }
+		
 	}
 	
 	private void addFoodDialog() {
