@@ -17,7 +17,7 @@ public class FridgeGUI extends JFrame implements ActionListener{
 	
 	public FridgeGUI() {
 		JFrame f = new JFrame();
-		// intialize fridge
+		// initialize fridge
 		
 		fridge = new Fridge();
 		
@@ -70,7 +70,7 @@ public class FridgeGUI extends JFrame implements ActionListener{
 	
 	private void addFoodDialog() {
 		
-		// intializing fields for food constructor
+		// initializing fields for food constructor
 		JTextField nameField = new JTextField();
 		JTextField expirationField = new JTextField();
 		JComboBox typeField = new JComboBox(types);

@@ -49,13 +49,16 @@ public class Fridge {
 	/**
 	 * Display food items by type
 	 */
-	public void displayByType(String type) {
+	public ArrayList<String> displayByType(String type) {
+		
+		ArrayList<String> foodsOfType = new ArrayList<String>();
 		
 		for(Food food : foods) {
 			if (food.getType().equals(type)) {
-				System.out.println("\n" + food.getName());
-			}
+				foodsOfType.add(food.getName());			}
 		}
+		
+		return foodsOfType;
 	}
 	
 	public List<Food> getFoods(){
