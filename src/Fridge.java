@@ -14,18 +14,6 @@ public class Fridge {
 		listeners = new ArrayList<>();
 	}
 	
-//	/**
-//	 * Prints all items in the fridge
-//	 */
-//	public void displayFridge() {
-//		
-//		System.out.println("\nNumber of foods in fridge: " + foods.size());
-//		
-//		for (Food food : foods) {
-//			System.out.println("\n" + food.getName());
-//		}
-//	}
-	
 	/**
 	 * Adds a food item to the fridge
 	 */
