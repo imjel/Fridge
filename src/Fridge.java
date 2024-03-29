@@ -7,9 +7,11 @@ import java.util.List;
 public class Fridge {
 	
 	private List<Food> foods;
+	private List<FridgeListener> listeners;
 	
 	public Fridge() {
 		foods = new ArrayList<>();
+		listeners = new ArrayList<>();
 	}
 	
 	/**
@@ -37,6 +39,14 @@ public class Fridge {
 	public void removeFood(Food item) {
 		foods.remove(item);
 	}
+	
+	public void addListener(FridgeListener listener) {
+        listeners.add(listener);
+    }
+
+    public void removeListener(FridgeListener listener) {
+        listeners.remove(listener);
+    }
 	
 	/**
 	 * Sorts foods by expiration date

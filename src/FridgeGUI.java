@@ -4,8 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
-public class FridgeGUI extends JFrame implements ActionListener{
+public class FridgeGUI implements FridgeListener{
 	
 	private Fridge fridge;
 	private JButton addButton;
@@ -15,7 +16,21 @@ public class FridgeGUI extends JFrame implements ActionListener{
 	private String types[] = {"Protein", "Dairy", "Fruit", "Vegetable", "Leftovers", "Beverage"};
 	private JList<String> foodList;
 	
+	@Override
+	public void update(List<Food> foods) {
+		
+		// When fridge changes, update View
+        DefaultListModel<String> listModel = (DefaultListModel<String>) foodList.getModel();
+        listModel.clear();
+
+        for (Food food : foods) {
+            listModel.addElement(food.getName());
+        }
+		
+	}
+	
 	public FridgeGUI() {
+		
 		JFrame f = new JFrame();
 		// initialize fridge
 		
@@ -49,15 +64,6 @@ public class FridgeGUI extends JFrame implements ActionListener{
 	     
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		if (e.getSource() == addButton) {
-			addFoodDialog();
-			displayFridge();
-		}
-		
-	}
 	
 	private void displayFridge() {
 		DefaultListModel<String> listModel = (DefaultListModel<String>) foodList.getModel();
