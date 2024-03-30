@@ -61,10 +61,6 @@ public class FridgeGUI implements ActionListener{
 		if (e.getSource() == addButton) {
             addFoodDialog();
 		}
-//        } else if (e.getSource() == removeButton) {
-//        	fridge.removeFood(null);
-//        }
-		
 	}
 	
 	private void addFoodDialog() {

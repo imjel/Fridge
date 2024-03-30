@@ -2,3 +2,8 @@
 /FridgeMain.class
 /AddFoodDialog.class
 /FridgeListView$1.class
+/FridgeListView$ListCellRenderer.class
+/ListCellRenderer.class
+/FridgeListView$ListCellRenderer$1.class
+/FoodCellRenderer.class
+/FoodListCellRenderer.class
