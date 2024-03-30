@@ -1,24 +1,19 @@
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Dimension;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
-import javax.swing.SwingUtilities;
 
-public class FoodListCellRenderer extends JPanel implements ListCellRenderer<Food> {
+public class FridgeListCellRenderer extends JPanel implements ListCellRenderer<Food> {
 	
 	private JLabel nameLabel;
-	private JButton removeButton;
 	
 	/**
 	 * Constructor sets up layout and remove button for each cell in the food list
 	 */
-	public FoodListCellRenderer() {
+	public FridgeListCellRenderer() {
 		
 		setLayout(new BorderLayout());
 		nameLabel = new JLabel();

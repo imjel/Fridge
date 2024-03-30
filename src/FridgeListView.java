@@ -22,8 +22,7 @@ public class FridgeListView extends JList<Food> implements FridgeListener {
 		// initial update to the list model upon construction
 		update(fridge.getFoods());
 		
-		// custom cell renderer with remove button
-		setCellRenderer(new FoodListCellRenderer());
+		setCellRenderer(new FridgeListCellRenderer());
 		
 		/**
 		 * Mouse listener that shows a food's attributes when clicked once
@@ -45,7 +44,6 @@ public class FridgeListView extends JList<Food> implements FridgeListener {
 			}
 		});
 	}
-	
 	
 	
 	/**
@@ -78,8 +76,12 @@ public class FridgeListView extends JList<Food> implements FridgeListener {
 	            food.getName() + "Information", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
-	public void remove() {
-		
+	/**
+	 * fridge getter
+	 * @return fridge
+	 */
+	public Fridge getFridge() {
+		return this.fridge;
 	}
 	
 }
