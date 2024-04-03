@@ -1,3 +1,5 @@
+package view;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 
@@ -5,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
+
+import model.Food;
 
 public class FridgeListCellRenderer extends JPanel implements ListCellRenderer<Food> {
 	

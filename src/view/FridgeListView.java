@@ -1,3 +1,5 @@
+package view;
+
 import java.util.List;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,12 +11,15 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import model.Food;
+import model.Fridge;
+
 public class FridgeListView extends JList<Food> implements FridgeListener {
 	
 	
 	private Fridge fridge;
 	
-	FridgeListView(Fridge fridge){
+	public FridgeListView(Fridge fridge){
 		
 		super(new DefaultListModel<>());
 		this.fridge = fridge;

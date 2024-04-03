@@ -1,5 +1,10 @@
+package view;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import model.Food;
+import model.Fridge;
 
 	/**
 	 * Listener for removing food from a list

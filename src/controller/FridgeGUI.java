@@ -1,4 +1,11 @@
+package controller;
+
 import javax.swing.*;
+
+import model.Food;
+import model.Fridge;
+import view.FridgeListView;
+import view.RemoveFoodListener;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -13,6 +20,7 @@ public class FridgeGUI implements ActionListener{
 	private JButton removeButton;
 	private JPanel north;
 	private JPanel east;
+	private JPanel west;
 	private String types[] = {"Protein", "Dairy", "Fruit", "Vegetable", "Leftovers", "Beverage"};
 	private FridgeListView listView;
 	
@@ -55,6 +63,11 @@ public class FridgeGUI implements ActionListener{
         east = new JPanel();
         east.add(instructions);
         f.add(east, BorderLayout.EAST);
+        
+        // west panel test
+        
+        west = new JPanel();
+        f.add(west, BorderLayout.WEST);
 
 		f.setSize(500, 700);
 	    f.setVisible(true);
@@ -105,11 +118,7 @@ public class FridgeGUI implements ActionListener{
             int quantity = Integer.parseInt(quantityField.getText());
 
             // Creating a Food object and adding it to the fridge
-            Food newFood = new Food();
-            newFood.setName(name);
-            newFood.setDaysUntilExpired(expiration);
-            newFood.setType(type);
-            newFood.setQuantity(quantity);
+            Food newFood = new Food(name, expiration, type, quantity);
             fridge.addFood(newFood);
         }
 		

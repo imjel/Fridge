@@ -1,3 +1,4 @@
+package model;
 
 public class Food {
 
@@ -7,6 +8,13 @@ public class Food {
 	int quantity;
 	
 	public Food() {
+	}
+	
+	public Food(String name, int daysUntilExpired, String type, int quantity) {
+		this.name = name;
+		this.daysUntilExpired = daysUntilExpired;
+		this.type = type;
+		this.quantity = quantity;
 	}
 	
 	
