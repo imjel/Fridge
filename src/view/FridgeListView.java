@@ -1,16 +1,11 @@
 package view;
 
 import java.util.List;
-import java.awt.*;
 import java.awt.event.*;
 
-import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableCellRenderer;
-
 import model.Food;
 import model.Fridge;
 

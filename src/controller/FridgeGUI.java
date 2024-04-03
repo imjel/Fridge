@@ -21,6 +21,7 @@ public class FridgeGUI implements ActionListener{
 	private JPanel north;
 	private JPanel east;
 	private JPanel west;
+	private JPanel center;
 	private String types[] = {"Protein", "Dairy", "Fruit", "Vegetable", "Leftovers", "Beverage"};
 	private FridgeListView listView;
 	
@@ -44,7 +45,8 @@ public class FridgeGUI implements ActionListener{
 		// fridge list view
 		listView = new FridgeListView(fridge);
 		fridge.addListener(listView);
-        f.add(new JScrollPane(listView), BorderLayout.CENTER);
+		
+        //f.add(new JScrollPane(listView), BorderLayout.CENTER);
         
         // button listeners
 		addButton.addActionListener(this);
@@ -54,20 +56,17 @@ public class FridgeGUI implements ActionListener{
         String instructionsString = "<html><body>" + 
         		"<p>Instructions:</p>" +
         		"<p>Double click an item to view its information.</p>" +
-        		"<p>Select and item and click 'remove' to remove it from the fridge.</p>" +
+        		"<p>Select and item and click 'remove'</p>" +
+        		"<p>to remove it from the fridge.</p>" +
         		"</body></html>";
         JLabel instructions = new JLabel(instructionsString);
         instructions.setFont(new Font("Serif", Font.PLAIN, 14));
         
-        // east panel with instructions
-        east = new JPanel();
-        east.add(instructions);
-        f.add(east, BorderLayout.EAST);
-        
-        // west panel test
-        
-        west = new JPanel();
-        f.add(west, BorderLayout.WEST);
+        // center panel
+     	center = new JPanel();
+     	center.add(instructions, BorderLayout.EAST);
+     	center.add(new JScrollPane(listView), BorderLayout.CENTER);
+     	f.add(center);
 
 		f.setSize(500, 700);
 	    f.setVisible(true);
@@ -122,6 +121,10 @@ public class FridgeGUI implements ActionListener{
             fridge.addFood(newFood);
         }
 		
+	}
+	
+	public static void main(String args[]) {
+		new FridgeGUI();
 	}
 	
 }
