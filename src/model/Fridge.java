@@ -55,18 +55,37 @@ public class Fridge {
 	 */
 	public void sortByExpiration() {
 		Collections.sort(foods, Comparator.comparingInt(Food::getDaysUntilExpired));
+		notifyListeners();
 	}
 	
 	/**
-	 * Display food items by type
+	 * Sorts foods by quantity
+	 * Foods that have the smallest quantity are at the front of the list
 	 */
-	public ArrayList<String> displayByType(String type) {
+	public void sortByQuantity() {
+		Collections.sort(foods, Comparator.comparingInt(Food::getQuantity));
+		notifyListeners();
+	}
+	
+	/**
+	 * Sorts foods alphabetically
+	 */
+	public void sortAlphabetically(){
+		Collections.sort(foods, new SortByName());
+		notifyListeners();
+	}
+	
+	/**
+	 * Sort food items by type
+	 */
+	public ArrayList<String> sortByType(String type) {
 		
 		ArrayList<String> foodsOfType = new ArrayList<String>();
 		
 		for(Food food : foods) {
 			if (food.getType().equals(type)) {
-				foodsOfType.add(food.getName());			}
+				foodsOfType.add(food.getName());			
+			}
 		}
 		
 		return foodsOfType;
@@ -74,6 +93,17 @@ public class Fridge {
 	
 	public List<Food> getFoods(){
 		return foods;
+	}
+	
+	/**
+	 * Helper class to compare names of foods
+	 */
+	class SortByName implements Comparator<Food>{
+		
+		public int compare(Food a, Food b) {
+			return a.getName().compareTo(b.getName());
+		}
+		
 	}
 	
 }

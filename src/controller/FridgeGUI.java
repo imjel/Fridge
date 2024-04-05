@@ -16,14 +16,23 @@ import java.util.List;
 public class FridgeGUI implements ActionListener{
 	
 	private Fridge fridge;
+	private FridgeListView listView;
+	
 	private JButton addButton;
 	private JButton removeButton;
+	
 	private JPanel north;
 	private JPanel east;
 	private JPanel west;
 	private JPanel center;
+	
 	private String types[] = {"Protein", "Dairy", "Fruit", "Vegetable", "Leftovers", "Beverage"};
-	private FridgeListView listView;
+	
+	private JLabel sortLabel;
+	private JComboBox sortMenu;
+	private static final String TYPE = "Type";
+	private static final String EXPIRATION = "Expiration";
+	private static final String NAME = "Name";
 	
 	public FridgeGUI() {
 		
@@ -35,22 +44,46 @@ public class FridgeGUI implements ActionListener{
 		addButton = new JButton("Add Food");
 		removeButton = new JButton("Remove");
 		
+		// sort menu
+		sortLabel = new JLabel("Sort by:");
+		sortMenu = new JComboBox();
+		//sortMenu.addItem(TYPE);
+		sortMenu.addItem(EXPIRATION);
+		sortMenu.addItem(NAME);
+		
 		
 		// north panel
 		north = new JPanel();
 		north.add(addButton);
 		north.add(removeButton);
+		north.add(sortLabel);
+		north.add(sortMenu);
 		f.add(north, BorderLayout.NORTH);
 		
 		// fridge list view
 		listView = new FridgeListView(fridge);
 		fridge.addListener(listView);
-		
-        //f.add(new JScrollPane(listView), BorderLayout.CENTER);
-        
+
         // button listeners
 		addButton.addActionListener(this);
         removeButton.addActionListener(new RemoveFoodListener(listView));
+        
+        // sorts the fridge according to user's selected sort algorithm
+        sortMenu.addActionListener(event -> {
+        	
+        	String sortAlgo = (String) sortMenu.getSelectedItem();
+        	switch(sortAlgo) {
+        		case EXPIRATION:
+        			fridge.sortByExpiration();
+        			break;
+        		case NAME:
+        			fridge.sortAlphabetically();
+        			break;
+        		default:
+        			break;
+        	}
+        	
+        });
         
         // instructions for use
         String instructionsString = "<html><body>" + 
@@ -64,7 +97,7 @@ public class FridgeGUI implements ActionListener{
         
         // center panel
      	center = new JPanel();
-     	center.add(instructions, BorderLayout.EAST);
+     	center.add(instructions);
      	center.add(new JScrollPane(listView), BorderLayout.CENTER);
      	f.add(center);
 
