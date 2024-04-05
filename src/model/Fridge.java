@@ -93,7 +93,7 @@ public class Fridge {
 	
 	public List<Food> getFoods(){
 		return foods;
-	}
+	} 
 	
 	/**
 	 * Helper class to compare names of foods
